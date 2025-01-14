@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
-    private List<MenuItem> menuItems = new ArrayList<>();
-    private String category;
+    private final List<MenuItem> menuItems = new ArrayList<>();
+    private final String category;
 
     Menu(String category) {
         this.category = category;
     }
 
     public void printMenuItems() {
+        // 선택된 카테고리의 메뉴들을 출력
         String format = "%-1d. %-15s | W %.1f | %s\n";
         int index = 1;
         System.out.println(String.format("[ %s MENU ]", this.category));
