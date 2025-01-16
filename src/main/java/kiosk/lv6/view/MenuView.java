@@ -14,10 +14,9 @@ public class MenuView {
         // 카테고리 출력
         System.out.println("[ MAIN MENU ]");
         for (Menu menu : controller.getMenus()) {
-            if(controller.hasCart()){
-                if(index == 4) {
-                    System.out.println("[ ORDER MENU ]");
-                }
+            if(controller.isCartEmpty()){
+                if(index == 4) System.out.println("[ ORDER MENU ]");
+
                 System.out.println(index++ + ". " + menu.getCategory());
             } else {
                 if(menu instanceof FoodMenu) {

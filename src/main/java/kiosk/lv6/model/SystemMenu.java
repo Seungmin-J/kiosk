@@ -38,7 +38,7 @@ public class SystemMenu extends Menu{
         if(yesOrNo == 1) {
             System.out.println("구매완료");
             controller.clearCart();
-            controller.setHasCartFalse();
+            controller.setIsCartEmptyTrue();
         }
         return true;
     }
