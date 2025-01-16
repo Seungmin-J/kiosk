@@ -14,15 +14,15 @@ public class KioskController {
 
     Scanner scanner = new Scanner(System.in);
     private final List<Menu> menus;
-    private final Cart cart = new Cart();
-    private boolean hasCart = false;
+    private final Cart cart  = new Cart();
+    private boolean isCartEmpty = true;
 
     public KioskController(List<Menu> menus) {
         this.menus = menus;
     }
 
-    public boolean hasCart() {
-        return hasCart;
+    public boolean isCartEmpty() {
+        return isCartEmpty;
     }
 
     public Cart getCart() {
@@ -73,8 +73,8 @@ public class KioskController {
     }
 
     public void addToCart(MenuItem item) {
-        if(!hasCart) {
-            setHasCartTrue();
+        if(!isCartEmpty) {
+            setIsCartEmptyFalse();
         }
         System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
         System.out.println("1. 확인       2. 취소");
@@ -87,11 +87,11 @@ public class KioskController {
         }
     }
 
-    public void setHasCartTrue() {
-        hasCart = true;
+    public void setIsCartEmptyTrue() {
+        isCartEmpty = true;
     }
-    public void setHasCartFalse() {
-        hasCart = false;
+    public void setIsCartEmptyFalse() {
+        isCartEmpty = false;
     }
 
     public boolean handleBackOption(int menuSelection) {
