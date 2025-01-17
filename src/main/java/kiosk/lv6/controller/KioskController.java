@@ -14,7 +14,7 @@ public class KioskController {
 
     Scanner scanner = new Scanner(System.in);
     private final List<Menu> menus;
-    private final Cart cart  = new Cart();
+    private final Cart cart = new Cart();
     private boolean isCartEmpty = true;
 
     public KioskController(List<Menu> menus) {
@@ -39,7 +39,7 @@ public class KioskController {
     }
 
     public MenuItem getSelectedItem(FoodMenu menu, int menuSelection) {
-        if(menu.isMenuItemsEmpty());
+        if (menu.isMenuItemsEmpty()) ;
         MenuView.printSelectedItem(menu.getMenuItems().get(menuSelection - 1));
         return menu.getMenuItems().get(menuSelection - 1);
     }
@@ -79,7 +79,7 @@ public class KioskController {
         int yesNo = scanner.nextInt();
         if (yesNo == 1) {
             cart.getCartList().add(item);
-            if(isCartEmpty) {
+            if (isCartEmpty) {
                 setIsCartEmptyFalse();
             }
         } else if (yesNo == 2) {
@@ -91,6 +91,7 @@ public class KioskController {
     public void setIsCartEmptyTrue() {
         isCartEmpty = true;
     }
+
     public void setIsCartEmptyFalse() {
         isCartEmpty = false;
     }
