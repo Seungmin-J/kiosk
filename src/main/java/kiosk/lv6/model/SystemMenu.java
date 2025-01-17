@@ -13,20 +13,27 @@ public class SystemMenu extends Menu {
         super(id, category);
     }
 
+    // Menu 타입 공통 메서드
     @Override
     public boolean processMenuSelection(KioskController controller) {
         List<MenuItem> menuItems = controller.getCart().getCartList();
+        // 선택한 메뉴에 따라 동작
         if (getCategory() == Category.ORDERS) {
+            // 장바구니에 아이템 없으면 처음으로
             if (validateCartItems(menuItems)) return true;
 
             System.out.println("1. 주문하기     2. 물건 빼기");
             int selection = scanner.nextInt();
             scanner.nextLine();
 
-            if(selection == 1) {
+            if (selection == 1) {
                 return processOrder(controller);
             } else if (selection == 2) {
-                return removeItemFromCart(controller);
+                try {
+                    return removeItemFromCart(controller);
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         } else if (getCategory() == Category.CANCEL) {
             validateCartItems(menuItems);
@@ -46,7 +53,7 @@ public class SystemMenu extends Menu {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("일치하는 아이템이 없습니다"));
         controller.getCart().getCartList().remove(menuItem);
-        if(controller.getCart().getCartList().isEmpty()) {
+        if (controller.getCart().getCartList().isEmpty()) {
             controller.setIsCartEmptyTrue();
         }
         return true;

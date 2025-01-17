@@ -16,9 +16,9 @@ public class Kiosk {
         while (true) {
             // 메인 메뉴 출력
             MenuView.printMenus(kioskController);
-            int categorySelection;
 
-            categorySelection = kioskController.getMenuSelection(kioskController.getMenus());
+            // 사용자의 입력값 받아옴 / getMenuSelection 에서 예외처리
+            int categorySelection = kioskController.getMenuSelection(kioskController.getMenus());
             if(categorySelection == -1) return;
 
             // 선택한 메뉴를 담음

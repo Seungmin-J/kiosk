@@ -7,7 +7,7 @@ import kiosk.lv6.model.DiscountType;
 public class CartView {
 
     public static void printItemsInCart(KioskController kioskController) {
-        if(!kioskController.isCartEmpty()) {
+        if (!kioskController.isCartEmpty()) {
             String format = "%-15s | W %.1f | %s";
             System.out.println("장바구니에 담긴 메뉴: ");
             int cartSize = kioskController.getCart().getCartList().size();
@@ -22,9 +22,10 @@ public class CartView {
         }
         System.out.println();
     }
+
     public static void printPrice(int price, DiscountType type) {
         String format = "총가격 : W %d";
-        System.out.printf(format, (int)(price - (price * (type.getRate() / 100.0))));
+        System.out.printf(format, (int) (price - (price * (type.getRate() / 100.0))));
         System.out.println();
 
     }
