@@ -27,7 +27,7 @@ public class FoodMenu extends Menu {
     }
 
     @Override
-    public boolean handleMenuAction(KioskController controller) {
+    public boolean processMenuSelection(KioskController controller) {
         int menuSelection = controller.getMenuItemSelection(this);
         if (controller.handleBackOption(menuSelection)) return true;
 

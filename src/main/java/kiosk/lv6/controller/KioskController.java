@@ -30,7 +30,8 @@ public class KioskController {
     }
 
     public void clearCart() {
-        cart.getItemsInCart().clear();
+        cart.getCartList().clear();
+        setIsCartEmptyTrue();
     }
 
     public List<Menu> getMenus() {
@@ -73,14 +74,14 @@ public class KioskController {
     }
 
     public void addToCart(MenuItem item) {
-        if(!isCartEmpty) {
-            setIsCartEmptyFalse();
-        }
         System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
         System.out.println("1. 확인       2. 취소");
         int yesNo = scanner.nextInt();
         if (yesNo == 1) {
-            cart.getItemsInCart().add(item);
+            cart.getCartList().add(item);
+            if(isCartEmpty) {
+                setIsCartEmptyFalse();
+            }
         } else if (yesNo == 2) {
         } else {
             throw new IllegalArgumentException("보기중 입력해주세요");

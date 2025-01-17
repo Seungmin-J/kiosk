@@ -19,5 +19,5 @@ public abstract class Menu {
         return id;
     }
 
-    public abstract boolean handleMenuAction(KioskController controller);
+    public abstract boolean processMenuSelection(KioskController controller);
 }
