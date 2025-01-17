@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
-    private List<MenuItem> itemsInCart = new ArrayList<>();
+    private List<MenuItem> cartList = new ArrayList<>();
 
-    public List<MenuItem> getItemsInCart() {
-        return itemsInCart;
+    public List<MenuItem> getCartList() {
+        return cartList;
     }
 }

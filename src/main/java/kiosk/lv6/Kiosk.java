@@ -21,11 +21,11 @@ public class Kiosk {
             categorySelection = kioskController.getMenuSelection(kioskController.getMenus());
             if(categorySelection == -1) return;
 
-            // 선택한 카테고리의 객체를 초기화
+            // 선택한 메뉴를 담음
             Menu selectedMenu = kioskController.getMenu(categorySelection);
 
             // 선택한 메뉴아이템 출력
-            boolean isEnded = selectedMenu.handleMenuAction(kioskController);
+            boolean isEnded = selectedMenu.processMenuSelection(kioskController);
             if(!isEnded) {
                 CartView.printItemsInCart(kioskController);
             }
